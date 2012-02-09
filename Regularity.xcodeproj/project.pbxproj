@@ -415,6 +415,7 @@
 		74BF524814CE46AE003AE685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BF524714CE46AE003AE685 /* AppDelegate.m */; };
 		74BF524B14CE46AE003AE685 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */; };
 		74BF524E14CE46AE003AE685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BF524D14CE46AE003AE685 /* ViewController.m */; };
+		74BF525614CEB734003AE685 /* EditReminderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BF525514CEB734003AE685 /* EditReminderController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -822,15 +823,17 @@
 		74BF523714CE46AE003AE685 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74BF523914CE46AE003AE685 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		74BF523B14CE46AE003AE685 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		74BF523F14CE46AE003AE685 /* Regularity-Info.plist */ = {isa = PBXFileReference; path = "Regularity-Info.plist"; sourceTree = "<group>"; };
+		74BF523F14CE46AE003AE685 /* Regularity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Regularity-Info.plist"; sourceTree = "<group>"; };
 		74BF524114CE46AE003AE685 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74BF524314CE46AE003AE685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		74BF524514CE46AE003AE685 /* Regularity-Prefix.pch */ = {isa = PBXFileReference; path = "Regularity-Prefix.pch"; sourceTree = "<group>"; };
-		74BF524614CE46AE003AE685 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		74BF524514CE46AE003AE685 /* Regularity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Regularity-Prefix.pch"; sourceTree = "<group>"; };
+		74BF524614CE46AE003AE685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74BF524714CE46AE003AE685 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		74BF524A14CE46AE003AE685 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		74BF524C14CE46AE003AE685 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		74BF524C14CE46AE003AE685 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		74BF524D14CE46AE003AE685 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		74BF525414CEB734003AE685 /* EditReminderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditReminderController.h; sourceTree = "<group>"; };
+		74BF525514CEB734003AE685 /* EditReminderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditReminderController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1291,6 +1294,8 @@
 				74BF524C14CE46AE003AE685 /* ViewController.h */,
 				74BF524D14CE46AE003AE685 /* ViewController.m */,
 				74BF523E14CE46AE003AE685 /* Supporting Files */,
+				74BF525414CEB734003AE685 /* EditReminderController.h */,
+				74BF525514CEB734003AE685 /* EditReminderController.m */,
 			);
 			path = Regularity;
 			sourceTree = "<group>";
@@ -1772,6 +1777,7 @@
 				74BF524414CE46AE003AE685 /* main.m in Sources */,
 				74BF524814CE46AE003AE685 /* AppDelegate.m in Sources */,
 				74BF524E14CE46AE003AE685 /* ViewController.m in Sources */,
+				74BF525614CEB734003AE685 /* EditReminderController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1883,6 +1889,7 @@
 				74BF525314CE46AE003AE685 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
