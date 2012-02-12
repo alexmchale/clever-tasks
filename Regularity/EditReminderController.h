@@ -10,4 +10,15 @@
 
 @interface EditReminderController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *mondayBtn;
+@property (weak, nonatomic) IBOutlet UIPickerView *dayOfWeek;
+@property BOOL mondayIsOn;
+@property (weak, nonatomic) IBOutlet UITextField *whatToDo;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *frequencyControl;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dateControl;
+
+- (IBAction)cancelButtonSelected:(id)sender;
+- (IBAction)saveButtonSelected:(id)sender;
+- (IBAction)whatEditingDone:(id)sender;
+
 @end

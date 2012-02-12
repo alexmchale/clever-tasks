@@ -9,15 +9,12 @@
 #import "EditReminderController.h"
 
 @implementation EditReminderController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize mondayBtn;
+@synthesize mondayIsOn;
+@synthesize whatToDo;
+@synthesize frequencyControl;
+@synthesize dateControl;
+@synthesize dayOfWeek;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,16 +33,41 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIFont *font16 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:16.0];
+    UIFont *font20 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:20.0];
+    
+    [whatToDo setFont:font20];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font16 forKey:UITextAttributeFont];
+    [frequencyControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIImage *backgroundImage = [UIImage imageNamed:@"husk.png"];
+    //NSLog(@"IMG %@", backgroundImage);
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    [self.view addSubview:backgroundView];
+    [self.view sendSubviewToBack:backgroundView];
 }
-*/
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [whatToDo becomeFirstResponder];
+}
 
 - (void)viewDidUnload
 {
+    [self setDayOfWeek:nil];
+    [self setMondayBtn:nil];
+    [self setWhatToDo:nil];
+    [self setFrequencyControl:nil];
+    [self setDateControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -55,6 +77,18 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)cancelButtonSelected:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)saveButtonSelected:(id)sender {
+}
+
+- (IBAction)whatEditingDone:(id)sender
+{
+    [sender resignFirstResponder];
 }
 
 @end
