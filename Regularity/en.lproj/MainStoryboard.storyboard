@@ -152,8 +152,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="EditReminderController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditReminderController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelButton:"/>
-                <relationship kind="action" name="saveButton:"/>
+                <relationship kind="action" name="cancelButtonSelected:"/>
+                <relationship kind="action" name="saveButtonSelected:"/>
                 <relationship kind="action" name="whatEditingDone:"/>
                 <relationship kind="outlet" name="dateControl" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="dayOfWeek" candidateClass="UIPickerView"/>

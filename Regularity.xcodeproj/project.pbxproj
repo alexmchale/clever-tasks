@@ -1320,14 +1320,14 @@
 		74BF523D14CE46AE003AE685 /* Regularity */ = {
 			isa = PBXGroup;
 			children = (
+				74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */,
 				74BF524614CE46AE003AE685 /* AppDelegate.h */,
 				74BF524714CE46AE003AE685 /* AppDelegate.m */,
-				74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */,
 				74BF524C14CE46AE003AE685 /* ViewController.h */,
 				74BF524D14CE46AE003AE685 /* ViewController.m */,
-				74BF523E14CE46AE003AE685 /* Supporting Files */,
 				74BF525414CEB734003AE685 /* EditReminderController.h */,
 				74BF525514CEB734003AE685 /* EditReminderController.m */,
+				74BF523E14CE46AE003AE685 /* Supporting Files */,
 			);
 			path = Regularity;
 			sourceTree = "<group>";
