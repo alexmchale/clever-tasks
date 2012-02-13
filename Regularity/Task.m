@@ -6,4 +6,9 @@
 @dynamic due;
 @dynamic frequency;
 
++ (NSArray *) all
+{
+    return [[CTX fetchObjectsForEntityName:@"Task" withPredicate:nil] allObjects];
+}
+
 @end

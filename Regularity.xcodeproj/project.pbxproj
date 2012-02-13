@@ -428,6 +428,7 @@
 		74E64EAF14E8644C00F0FD1D /* DataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E64EAD14E8644C00F0FD1D /* DataStore.xcdatamodeld */; };
 		74E64EB214E864DE00F0FD1D /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E64EB114E864DE00F0FD1D /* Task.m */; };
 		74E64EB414E8680500F0FD1D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E64EB314E8680500F0FD1D /* CoreData.framework */; };
+		74E64EF814E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E64EF714E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -859,6 +860,8 @@
 		74E64EB014E864DE00F0FD1D /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		74E64EB114E864DE00F0FD1D /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		74E64EB314E8680500F0FD1D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		74E64EF614E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+NSManagedObjectContextCategory.h"; sourceTree = "<group>"; };
+		74E64EF714E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+NSManagedObjectContextCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1329,6 +1332,7 @@
 		74BF523D14CE46AE003AE685 /* Regularity */ = {
 			isa = PBXGroup;
 			children = (
+				74E64EF414E89E4E00F0FD1D /* Categories */,
 				74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */,
 				74BF524614CE46AE003AE685 /* AppDelegate.h */,
 				74BF524714CE46AE003AE685 /* AppDelegate.m */,
@@ -1364,6 +1368,15 @@
 				74DD467214E4C2FA0033DF74 /* hixs_pattern_evolution.png */,
 			);
 			name = Textures;
+			sourceTree = "<group>";
+		};
+		74E64EF414E89E4E00F0FD1D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				74E64EF614E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.h */,
+				74E64EF714E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1844,6 +1857,7 @@
 				74BF525614CEB734003AE685 /* EditReminderController.m in Sources */,
 				74E64EAF14E8644C00F0FD1D /* DataStore.xcdatamodeld in Sources */,
 				74E64EB214E864DE00F0FD1D /* Task.m in Sources */,
+				74E64EF814E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

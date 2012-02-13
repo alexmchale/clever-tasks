@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
     <UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *tasks;
+}
 
 @property (strong, nonatomic) IBOutlet UITableView *reminderTableView;
 

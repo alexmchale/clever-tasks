@@ -36,6 +36,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    tasks = [Task all];
+    NSLog(@"tasks = %@", tasks);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,5 +61,43 @@
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"task count = %d", [tasks count]);
+    return [tasks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *kCellIdentifier = @"TaskList";
+    Task *item = [tasks objectAtIndex:indexPath.row];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    
+    [df setTimeStyle:NSDateFormatterShortStyle];
+    [df setDateStyle:NSDateFormatterShortStyle];
+    
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    
+    NSLog(@"cell = %@", cell);
+    
+	if (cell == nil)
+	{
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifier];
+	}
+	
+	// get the view controller's info dictionary based on the indexPath's row
+	cell.textLabel.text = [item name];
+    cell.detailTextLabel.text = [df stringFromDate:[item due]];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	
+	return cell;
+}
+
 
 @end

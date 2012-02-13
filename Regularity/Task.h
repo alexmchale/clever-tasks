@@ -7,4 +7,6 @@
 @property (nonatomic, retain) NSDate *due;
 @property (nonatomic, retain) NSNumber *frequency;
 
++ (NSArray *) all;
+
 @end
