@@ -1,25 +1,18 @@
-//
-//  EditReminderController.h
-//  Regularity
-//
-//  Created by Alex McHale on 1/24/12.
-//  Copyright (c) 2012 Gemini SBS. All rights reserved.
-//
-
-
-
 @interface EditReminderController : UIViewController
+    <UITableViewDelegate, UITableViewDataSource>
+{
+}
 
-@property (strong, nonatomic) IBOutlet UIButton *mondayBtn;
-@property (weak, nonatomic) IBOutlet UIPickerView *dayOfWeek;
-@property BOOL mondayIsOn;
-@property (weak, nonatomic) IBOutlet UITextField *whatToDo;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *frequencyControl;
+@property (strong, nonatomic) TextFieldCell *whatToDo;
+@property (nonatomic) FrequencyType frequency;
+@property (strong, nonatomic) NSDate *due;
+
+@property (weak, nonatomic) IBOutlet UITableView *optionsTableView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateControl;
 
 - (IBAction)cancelButtonSelected:(id)sender;
 - (IBAction)saveButtonSelected:(id)sender;
 - (IBAction)whatEditingDone:(id)sender;
-- (NSManagedObjectContext *) context;
+- (IBAction)dateChanged:(id)sender;
 
 @end

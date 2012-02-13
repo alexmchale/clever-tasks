@@ -30,5 +30,6 @@ typedef enum
 - (BOOL) doesNextTaskExist;
 
 + (NSArray *) all;
++ (NSString *) describeFrequency:(FrequencyType)type;
 
 @end

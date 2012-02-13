@@ -77,17 +77,22 @@
     return (FrequencyType) [self.frequency integerValue];
 }
 
-- (NSString *)describeFrequency
+- (NSString *) describeFrequency
+{
+    return [Task describeFrequency:[self frequencyType]];
+}
+
++ (NSString *) describeFrequency:(FrequencyType)type
 {
     NSString *frequencies[] = {
-        @"once",
-        @"daily",
-        @"weekly",
-        @"monthly",
-        @"yearly"
+        @"Once",
+        @"Daily",
+        @"Weekly",
+        @"Monthly",
+        @"Yearly"
     };
     
-    return frequencies[[self frequencyType]];
+    return frequencies[type];
 }
 
 - (BOOL) doesNextTaskExist

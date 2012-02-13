@@ -22,7 +22,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIImage *backgroundImage = [UIImage imageNamed:@"husk.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    [self.view addSubview:backgroundView];
+    [self.view sendSubviewToBack:backgroundView];
 }
 
 - (void)viewDidUnload
@@ -157,7 +162,7 @@
         tasks = [Task all];
         NSArray *rows = [NSArray arrayWithObject:indexPath];
         [tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationLeft];
-        // remove the row here.
+        [CTX save:nil];
     }
 }
 

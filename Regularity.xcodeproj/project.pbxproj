@@ -421,6 +421,8 @@
 		74BF524B14CE46AE003AE685 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */; };
 		74BF524E14CE46AE003AE685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BF524D14CE46AE003AE685 /* ViewController.m */; };
 		74BF525614CEB734003AE685 /* EditReminderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BF525514CEB734003AE685 /* EditReminderController.m */; };
+		74D470FD14E99D4A0095FAB1 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D470FC14E99D4A0095FAB1 /* TextFieldCell.m */; };
+		74D4710714E9A98E0095FAB1 /* FrequencySelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D4710614E9A98E0095FAB1 /* FrequencySelectController.m */; };
 		74DD467314E4C2FA0033DF74 /* hixs_pattern_evolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DD467214E4C2FA0033DF74 /* hixs_pattern_evolution.png */; };
 		74E64EA714E852EC00F0FD1D /* vintage_speckles.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E64EA614E852EC00F0FD1D /* vintage_speckles.png */; };
 		74E64EAA14E8535200F0FD1D /* ice_age.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E64EA914E8535200F0FD1D /* ice_age.png */; };
@@ -853,6 +855,11 @@
 		74BF524D14CE46AE003AE685 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		74BF525414CEB734003AE685 /* EditReminderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditReminderController.h; sourceTree = "<group>"; };
 		74BF525514CEB734003AE685 /* EditReminderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditReminderController.m; sourceTree = "<group>"; };
+		74D470FB14E99D4A0095FAB1 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		74D470FC14E99D4A0095FAB1 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		74D470FE14E99E0E0095FAB1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		74D4710514E9A98E0095FAB1 /* FrequencySelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencySelectController.h; sourceTree = "<group>"; };
+		74D4710614E9A98E0095FAB1 /* FrequencySelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencySelectController.m; sourceTree = "<group>"; };
 		74DD467214E4C2FA0033DF74 /* hixs_pattern_evolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hixs_pattern_evolution.png; path = textures/hixs_pattern_evolution.png; sourceTree = "<group>"; };
 		74E64EA614E852EC00F0FD1D /* vintage_speckles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vintage_speckles.png; sourceTree = "<group>"; };
 		74E64EA914E8535200F0FD1D /* ice_age.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ice_age.png; sourceTree = "<group>"; };
@@ -1335,6 +1342,8 @@
 		74BF523D14CE46AE003AE685 /* Regularity */ = {
 			isa = PBXGroup;
 			children = (
+				74D4710314E9A9630095FAB1 /* Controllers */,
+				74D470F914E99D100095FAB1 /* Widgets */,
 				74E64EF414E89E4E00F0FD1D /* Categories */,
 				74BF524914CE46AE003AE685 /* MainStoryboard.storyboard */,
 				74BF524614CE46AE003AE685 /* AppDelegate.h */,
@@ -1358,8 +1367,27 @@
 				74BF524314CE46AE003AE685 /* main.m */,
 				74BF524514CE46AE003AE685 /* Regularity-Prefix.pch */,
 				74E64EAD14E8644C00F0FD1D /* DataStore.xcdatamodeld */,
+				74D470FE14E99E0E0095FAB1 /* Constants.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74D470F914E99D100095FAB1 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				74D470FB14E99D4A0095FAB1 /* TextFieldCell.h */,
+				74D470FC14E99D4A0095FAB1 /* TextFieldCell.m */,
+			);
+			name = Widgets;
+			sourceTree = "<group>";
+		};
+		74D4710314E9A9630095FAB1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74D4710514E9A98E0095FAB1 /* FrequencySelectController.h */,
+				74D4710614E9A98E0095FAB1 /* FrequencySelectController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		74DD467014E4C2D20033DF74 /* Textures */ = {
@@ -1864,6 +1892,8 @@
 				74E64EB214E864DE00F0FD1D /* Task.m in Sources */,
 				74E64EF814E89E7C00F0FD1D /* NSManagedObjectContext+NSManagedObjectContextCategory.m in Sources */,
 				74E64EFB14E952A200F0FD1D /* NSString+NSStringCategory.m in Sources */,
+				74D470FD14E99D4A0095FAB1 /* TextFieldCell.m in Sources */,
+				74D4710714E9A98E0095FAB1 /* FrequencySelectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,12 +9,11 @@
 #import "EditReminderController.h"
 
 @implementation EditReminderController
-@synthesize mondayBtn;
-@synthesize mondayIsOn;
 @synthesize whatToDo;
-@synthesize frequencyControl;
+@synthesize frequency;
+@synthesize due;
 @synthesize dateControl;
-@synthesize dayOfWeek;
+@synthesize optionsTableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,18 +25,17 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    whatToDo = [TextFieldCell cellForTableView:optionsTableView labeled:@"Title"];
+    whatToDo.text.placeholder = @"What do you need to do?";
+    
+    [optionsTableView reloadData];
+    
+    
+    /*
     UIFont *font16 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:16.0];
     UIFont *font20 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:20.0];
     
@@ -45,32 +43,32 @@
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font16 forKey:UITextAttributeFont];
     [frequencyControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    UIImage *backgroundImage = [UIImage imageNamed:@"husk.png"];
+    UIImage *backgroundImage = [UIImage imageNamed:@"hixs_pattern_evolution.png"];
     //NSLog(@"IMG %@", backgroundImage);
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     [self.view addSubview:backgroundView];
     [self.view sendSubviewToBack:backgroundView];
+     
+     */
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
-    [whatToDo becomeFirstResponder];
+    NSArray *rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]];
+    [optionsTableView reloadRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)viewDidUnload
 {
-    [self setDayOfWeek:nil];
-    [self setMondayBtn:nil];
     [self setWhatToDo:nil];
-    [self setFrequencyControl:nil];
     [self setDateControl:nil];
+    [self setOptionsTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -85,17 +83,12 @@
 
 - (IBAction)saveButtonSelected:(id)sender
 {
-    NSManagedObjectContext *context = [self context];
-    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:context];
-    Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:context];
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:CTX];
+    Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:CTX];
     
-    NSLog(@"task name = %@", [task name]);
-    
-    task.name = [whatToDo text];
+    task.name = [whatToDo value];
     task.due = [dateControl date];
-    task.frequency = [NSNumber numberWithInteger:[frequencyControl selectedSegmentIndex]];
-    
-    NSLog(@"task naame = %@", task.name);
+    task.frequency = [NSNumber numberWithInteger:frequency];
     
     if (task.name != nil && ![task.name isEqualToString:@""])
     {
@@ -109,11 +102,82 @@
     [sender resignFirstResponder];
 }
 
-- (NSManagedObjectContext *) context
+- (IBAction)dateChanged:(id)sender
 {
-    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"app = %@", app);
-    return app.managedObjectContext;
+    NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:2 inSection:0]];
+    [optionsTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Tell me about your task";
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+
+    switch (indexPath.row)
+    {
+        case 0:
+            return whatToDo;
+            
+        case 1:
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];            
+            cell.textLabel.text = @"Frequency";
+            cell.detailTextLabel.text = [Task describeFrequency:frequency];     
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+            
+        case 2:
+        {
+            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+            
+            [df setTimeStyle:NSDateFormatterShortStyle];
+            [df setDateStyle:NSDateFormatterShortStyle];
+
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];            
+            cell.textLabel.text = @"Due";
+            cell.detailTextLabel.text = [df stringFromDate:[dateControl date]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            return cell;
+        }
+    }
+    
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 0)
+        [whatToDo.text resignFirstResponder];
+    
+    switch (indexPath.row)
+    {
+        case 0:
+            break;
+            
+        case 1:
+            [self performSegueWithIdentifier:@"RevealFrequencies" sender:self];
+            break;
+            
+        case 2:
+            break;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    FrequencySelectController *frequencySelector = [segue destinationViewController];
+    frequencySelector.editReminderController = self;
+    frequencySelector.selectedIndex = frequency;
 }
 
 @end

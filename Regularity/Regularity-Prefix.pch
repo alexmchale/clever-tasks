@@ -12,10 +12,14 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
+    #import "Constants.h"
     #import "AppDelegate.h"
     #import "Task.h"
+    #import "TextFieldCell.h"
+    #import "EditReminderController.h"
     #import "NSManagedObjectContext+NSManagedObjectContextCategory.h"
     #import "NSString+NSStringCategory.h"
+    #import "FrequencySelectController.h"
 #endif
 
 #define CTX (((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext)
