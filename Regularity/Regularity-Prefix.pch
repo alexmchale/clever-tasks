@@ -15,6 +15,7 @@
     #import "AppDelegate.h"
     #import "Task.h"
     #import "NSManagedObjectContext+NSManagedObjectContextCategory.h"
+    #import "NSString+NSStringCategory.h"
 #endif
 
 #define CTX (((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext)

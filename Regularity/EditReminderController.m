@@ -99,9 +99,7 @@
     
     if (task.name != nil && ![task.name isEqualToString:@""])
     {
-        [[self context] insertObject:task];
-        [[self context] save:nil];
-        
+        [task save];
         [self dismissModalViewControllerAnimated:YES];
     }
 }

@@ -6,6 +6,7 @@
 @dynamic due;
 @dynamic frequency;
 @dynamic completed;
+@dynamic uuid;
 
 - (void) toggleCompleted
 {
@@ -13,6 +14,16 @@
         self.completed = [NSDate date];
     else
         self.completed = nil;
+    
+    [CTX save:nil];
+}
+
+- (void) save
+{
+    if (self.uuid == nil) self.uuid = [NSString generateUUID];
+    if (![self isInserted]) [CTX insertObject:self];
+    
+    NSLog(@"uuid = %@", self.uuid);
     
     [CTX save:nil];
 }
