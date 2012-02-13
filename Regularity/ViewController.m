@@ -121,10 +121,15 @@
     [task toggleCompleted];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (task.completed == nil)
+    
+    if (task.completed == nil) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    else
+    } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        Task *nextTask = [task createNext];
+        
+        // need to insert this next task into the table
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
