@@ -83,12 +83,39 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)saveButtonSelected:(id)sender {
+- (IBAction)saveButtonSelected:(id)sender
+{
+    NSManagedObjectContext *context = [self context];
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:context];
+    Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:context];
+    
+    NSLog(@"task name = %@", [task name]);
+    
+    task.name = [whatToDo text];
+    task.due = [dateControl date];
+    task.frequency = [NSNumber numberWithInteger:[frequencyControl selectedSegmentIndex]];
+    
+    NSLog(@"task naame = %@", task.name);
+    
+    if (task.name != nil && ![task.name isEqualToString:@""])
+    {
+        [[self context] insertObject:task];
+        [[self context] save:nil];
+        
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)whatEditingDone:(id)sender
 {
     [sender resignFirstResponder];
+}
+
+- (NSManagedObjectContext *) context
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"app = %@", app);
+    return app.managedObjectContext;
 }
 
 @end

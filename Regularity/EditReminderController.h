@@ -20,5 +20,6 @@
 - (IBAction)cancelButtonSelected:(id)sender;
 - (IBAction)saveButtonSelected:(id)sender;
 - (IBAction)whatEditingDone:(id)sender;
+- (NSManagedObjectContext *) context;
 
 @end

@@ -425,6 +425,9 @@
 		74E64EA714E852EC00F0FD1D /* vintage_speckles.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E64EA614E852EC00F0FD1D /* vintage_speckles.png */; };
 		74E64EAA14E8535200F0FD1D /* ice_age.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E64EA914E8535200F0FD1D /* ice_age.png */; };
 		74E64EAC14E85EDC00F0FD1D /* husk.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E64EAB14E85EDC00F0FD1D /* husk.png */; };
+		74E64EAF14E8644C00F0FD1D /* DataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74E64EAD14E8644C00F0FD1D /* DataStore.xcdatamodeld */; };
+		74E64EB214E864DE00F0FD1D /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E64EB114E864DE00F0FD1D /* Task.m */; };
+		74E64EB414E8680500F0FD1D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E64EB314E8680500F0FD1D /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -852,6 +855,10 @@
 		74E64EA614E852EC00F0FD1D /* vintage_speckles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vintage_speckles.png; sourceTree = "<group>"; };
 		74E64EA914E8535200F0FD1D /* ice_age.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ice_age.png; sourceTree = "<group>"; };
 		74E64EAB14E85EDC00F0FD1D /* husk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = husk.png; sourceTree = "<group>"; };
+		74E64EAE14E8644C00F0FD1D /* DataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStore.xcdatamodel; sourceTree = "<group>"; };
+		74E64EB014E864DE00F0FD1D /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		74E64EB114E864DE00F0FD1D /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		74E64EB314E8680500F0FD1D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -859,6 +866,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E64EB414E8680500F0FD1D /* CoreData.framework in Frameworks */,
 				74BF523814CE46AE003AE685 /* UIKit.framework in Frameworks */,
 				74BF523A14CE46AE003AE685 /* Foundation.framework in Frameworks */,
 				74BF523C14CE46AE003AE685 /* CoreGraphics.framework in Frameworks */,
@@ -1310,6 +1318,7 @@
 		74BF523614CE46AE003AE685 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74E64EB314E8680500F0FD1D /* CoreData.framework */,
 				74BF523714CE46AE003AE685 /* UIKit.framework */,
 				74BF523914CE46AE003AE685 /* Foundation.framework */,
 				74BF523B14CE46AE003AE685 /* CoreGraphics.framework */,
@@ -1328,6 +1337,8 @@
 				74BF525414CEB734003AE685 /* EditReminderController.h */,
 				74BF525514CEB734003AE685 /* EditReminderController.m */,
 				74BF523E14CE46AE003AE685 /* Supporting Files */,
+				74E64EB014E864DE00F0FD1D /* Task.h */,
+				74E64EB114E864DE00F0FD1D /* Task.m */,
 			);
 			path = Regularity;
 			sourceTree = "<group>";
@@ -1339,6 +1350,7 @@
 				74BF524014CE46AE003AE685 /* InfoPlist.strings */,
 				74BF524314CE46AE003AE685 /* main.m */,
 				74BF524514CE46AE003AE685 /* Regularity-Prefix.pch */,
+				74E64EAD14E8644C00F0FD1D /* DataStore.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1830,6 +1842,8 @@
 				74BF524814CE46AE003AE685 /* AppDelegate.m in Sources */,
 				74BF524E14CE46AE003AE685 /* ViewController.m in Sources */,
 				74BF525614CEB734003AE685 /* EditReminderController.m in Sources */,
+				74E64EAF14E8644C00F0FD1D /* DataStore.xcdatamodeld in Sources */,
+				74E64EB214E864DE00F0FD1D /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1944,6 +1958,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		74E64EAD14E8644C00F0FD1D /* DataStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				74E64EAE14E8644C00F0FD1D /* DataStore.xcdatamodel */,
+			);
+			currentVersion = 74E64EAE14E8644C00F0FD1D /* DataStore.xcdatamodel */;
+			path = DataStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74BF522A14CE46AE003AE685 /* Project object */;
 }
