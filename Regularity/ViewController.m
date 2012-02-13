@@ -36,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    reminderTableView.editing = NO;
     [self reloadData];
 }
 
@@ -64,6 +65,11 @@
 {
     tasks = [Task all];
     [reminderTableView reloadData];
+}
+
+- (IBAction)editButtonSelected:(id)sender
+{
+    [reminderTableView setEditing:!reminderTableView.editing animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -121,6 +127,26 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath
+{
+    NSLog(@"editing style = %d", editingStyle);
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Task *task = [tasks objectAtIndex:indexPath.row];
+        [CTX deleteObject:task];
+        tasks = [Task all];
+        NSArray *rows = [NSArray arrayWithObject:indexPath];
+        [tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationLeft];
+        // remove the row here.
+    }
 }
 
 @end

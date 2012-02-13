@@ -28,7 +28,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Regularity" id="2cf-e5-4av">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="neU-im-w4z"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="neU-im-w4z">
+                                            <connections>
+                                                <action selector="editButtonSelected:" destination="2" id="u3v-Jk-3rk"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yvz-BX-hui">
                                             <connections>
                                                 <segue destination="7l0-kF-dPh" kind="modal" id="D8L-be-G1i"/>
@@ -142,27 +146,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-385" y="-1164"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="EditReminderController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditReminderController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonSelected:"/>
-                <relationship kind="action" name="saveButtonSelected:"/>
-                <relationship kind="action" name="whatEditingDone:"/>
-                <relationship kind="outlet" name="dateControl" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="dayOfWeek" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="frequencyControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="mondayBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="whatToDo" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reminderTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

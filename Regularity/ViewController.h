@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *reminderTableView;
 
 - (void) reloadData;
+- (IBAction)editButtonSelected:(id)sender;
 
 @end
