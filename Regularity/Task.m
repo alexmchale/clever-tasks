@@ -28,6 +28,54 @@
     [CTX save:nil];
 }
 
+- (Task *) createNext
+{
+    if ([self frequencyType] == kFrequencyOnce) return nil;
+    
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:CTX];
+    Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:CTX];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    
+    switch ([self frequencyType])
+    {
+        case kFrequencyOnce:
+            assert(NO);
+            break;
+            
+        case kFrequencyDaily:
+            components.day = 1;
+            break;
+            
+        case kFrequencyWeekly:
+            components.week = 1;
+            task.due = [NSDate dateWithTimeInterval:ONE_WEEK sinceDate:self.due];
+            break;
+            
+        case kFrequencyMonthly:
+            components.month = 1;
+            break;
+            
+        case kFrequencyYearly:
+            components.year = 1;
+            break;
+    }
+    
+    task.name = self.name;
+    task.frequency = self.frequency;
+    task.completed = nil;
+    task.due = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self.due options:0];
+    task.uuid = self.uuid;
+    
+    [task save];
+    
+    return task;
+}
+
+- (FrequencyType) frequencyType
+{
+    return (FrequencyType) [self.frequency integerValue];
+}
+
 + (NSArray *) all
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Task"];

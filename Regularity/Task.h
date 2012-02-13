@@ -1,6 +1,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define ONE_HOUR (60*60)
+#define ONE_DAY (60*60*24)
+#define ONE_WEEK (60*60*24*7)
+
+typedef enum
+{
+    kFrequencyOnce,
+    kFrequencyDaily,
+    kFrequencyWeekly,
+    kFrequencyMonthly,
+    kFrequencyYearly
+} FrequencyType;
+
 @interface Task : NSManagedObject
 
 @property (nonatomic, retain) NSString *name;
@@ -11,6 +24,8 @@
 
 - (void) toggleCompleted;
 - (void) save;
+- (Task *) createNext;
+- (FrequencyType) frequencyType;
 
 + (NSArray *) all;
 
