@@ -94,10 +94,23 @@
 	// get the view controller's info dictionary based on the indexPath's row
 	cell.textLabel.text = [item name];
     cell.detailTextLabel.text = [df stringFromDate:[item due]];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    NSLog(@"completed = %@", item.completed);
+    
+    if (item.completed == nil)
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    else
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Task *task = [tasks objectAtIndex:indexPath.row];
+    [task markAsCompleted];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];    
+}
 
 @end
