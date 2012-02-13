@@ -8,7 +8,7 @@
 @property (nonatomic, retain) NSNumber *frequency;
 @property (nonatomic, retain) NSDate *completed;
 
-- (void) markAsCompleted;
+- (void) toggleCompleted;
 
 + (NSArray *) all;
 

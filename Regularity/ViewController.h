@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *reminderTableView;
 
+- (void) reloadData;
+
 @end

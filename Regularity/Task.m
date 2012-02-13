@@ -7,9 +7,13 @@
 @dynamic frequency;
 @dynamic completed;
 
-- (void) markAsCompleted
+- (void) toggleCompleted
 {
-    self.completed = [NSDate date];
+    if (self.completed == nil)
+        self.completed = [NSDate date];
+    else
+        self.completed = nil;
+    
     [CTX save:nil];
 }
 

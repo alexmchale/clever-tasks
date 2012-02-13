@@ -36,9 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    tasks = [Task all];
-    NSLog(@"tasks = %@", tasks);
+    [self reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,6 +58,12 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void) reloadData
+{
+    tasks = [Task all];
+    [reminderTableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -108,9 +112,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Task *task = [tasks objectAtIndex:indexPath.row];
-    [task markAsCompleted];
+    [task toggleCompleted];
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (task.completed == nil)
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    else
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
