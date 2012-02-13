@@ -128,7 +128,13 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         Task *nextTask = [task createNext];
         
-        // need to insert this next task into the table
+        if (nextTask != nil) {
+            tasks = [Task all];
+            NSInteger indexOfNextTask = [tasks indexOfObject:nextTask];
+            NSLog(@"index of next task = %d", indexOfNextTask);
+            NSArray *rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexOfNextTask inSection:0]];
+            [tableView insertRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationRight];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
