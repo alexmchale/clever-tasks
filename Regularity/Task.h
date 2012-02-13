@@ -26,6 +26,7 @@ typedef enum
 - (void) save;
 - (Task *) createNext;
 - (FrequencyType) frequencyType;
+- (BOOL) doesNextTaskExist;
 
 + (NSArray *) all;
 

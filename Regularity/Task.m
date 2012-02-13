@@ -31,6 +31,7 @@
 - (Task *) createNext
 {
     if ([self frequencyType] == kFrequencyOnce) return nil;
+    if ([self doesNextTaskExist]) return nil;
     
     NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:CTX];
     Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:CTX];
@@ -74,6 +75,20 @@
 - (FrequencyType) frequencyType
 {
     return (FrequencyType) [self.frequency integerValue];
+}
+
+- (BOOL) doesNextTaskExist
+{
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Task"];    
+    NSPredicate *due = [NSPredicate predicateWithFormat:@"due > %@", self.due];
+    NSPredicate *uuid = [NSPredicate predicateWithFormat:@"uuid = %@", self.uuid];
+    NSArray *preds = [NSArray arrayWithObjects:due, uuid, nil];
+    NSPredicate *pred = [NSCompoundPredicate andPredicateWithSubpredicates:preds];
+    
+    [req setPredicate:pred];    
+    [req setIncludesSubentities:NO];
+    
+    return [CTX countForFetchRequest:req error:nil] > 0;
 }
 
 + (NSArray *) all
