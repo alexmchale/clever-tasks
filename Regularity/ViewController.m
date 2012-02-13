@@ -103,9 +103,10 @@
 	
 	// get the view controller's info dictionary based on the indexPath's row
 	cell.textLabel.text = [item name];
-    cell.detailTextLabel.text = [df stringFromDate:[item due]];
     
-    NSLog(@"completed = %@", item.completed);
+    NSString *time = [df stringFromDate:[item due]];
+    NSString *mode = [item describeFrequency];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", time, mode];
     
     if (item.completed == nil)
         cell.accessoryType = UITableViewCellAccessoryNone;

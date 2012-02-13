@@ -77,6 +77,19 @@
     return (FrequencyType) [self.frequency integerValue];
 }
 
+- (NSString *)describeFrequency
+{
+    NSString *frequencies[] = {
+        @"once",
+        @"daily",
+        @"weekly",
+        @"monthly",
+        @"yearly"
+    };
+    
+    return frequencies[[self frequencyType]];
+}
+
 - (BOOL) doesNextTaskExist
 {
     NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Task"];    
