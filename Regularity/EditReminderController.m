@@ -16,6 +16,8 @@
     whatToDo = [TextFieldCell cellForTableView:self.myTableView labeled:@"Title"];
     
     whatToDo.text.placeholder = @"What do you need to do?";
+    whatToDo.text.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    whatToDo.text.autocorrectionType = UITextAutocorrectionTypeYes;
     
     [whatToDo.text addTarget:self
                       action:@selector(donePressed:)
