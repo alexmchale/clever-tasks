@@ -26,10 +26,13 @@ typedef enum
 - (void) save;
 - (Task *) createNext;
 - (FrequencyType) frequencyType;
+- (NSCalendarUnit) localNotificationRepeatInterval;
 - (NSString *) describeFrequency;
 - (BOOL) doesNextTaskExist;
+- (BOOL) scheduleable;
 
 + (NSArray *) all;
 + (NSString *) describeFrequency:(FrequencyType)type;
++ (void) scheduleLocalNotifications;
 
 @end

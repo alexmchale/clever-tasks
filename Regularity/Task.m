@@ -77,6 +77,18 @@
     return (FrequencyType) [self.frequency integerValue];
 }
 
+- (NSCalendarUnit)localNotificationRepeatInterval
+{
+    switch ([self frequencyType])
+    {
+        case kFrequencyOnce: return 0;
+        case kFrequencyDaily: return NSDayCalendarUnit;
+        case kFrequencyWeekly: return NSWeekCalendarUnit;
+        case kFrequencyMonthly: return NSMonthCalendarUnit;
+        case kFrequencyYearly: return NSYearCalendarUnit;
+    }
+}
+
 - (NSString *) describeFrequency
 {
     return [Task describeFrequency:[self frequencyType]];
@@ -109,6 +121,11 @@
     return [CTX countForFetchRequest:req error:nil] > 0;
 }
 
+- (BOOL) scheduleable
+{
+    return ![self completed] && [self.due isAfter:[NSDate date]];
+}
+
 + (NSArray *) all
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
@@ -134,4 +151,81 @@
     return results;
 }
 
++ (NSArray *) scheduleable
+{
+    NSMutableArray *results = [NSMutableArray array];
+
+    // Scan the list of 
+    for (Task *task in [Task all]) {
+        if (![task scheduleable])
+            continue;
+        
+        NSInteger index = [results indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            Task *t0 = obj;
+            return [t0.uuid isEqualToString:task.uuid];
+        }];
+        
+        if (index == NSNotFound) {
+            [results addObject:task];
+        } else {
+            Task *t0 = [results objectAtIndex:index];
+            if ([task.due isBefore:t0.due]) {
+                [results replaceObjectAtIndex:index withObject:task];
+            }
+        }
+    }
+    
+    return results;
+}
+
++ (void) scheduleLocalNotifications
+{
+    NSLog(@"scheduleable tasks = %@", [Task scheduleable]);
+    
+    for (Task *task in [Task scheduleable]) {
+        UILocalNotification *n = [[UILocalNotification alloc] init];
+        
+        n.fireDate = task.due;
+        n.timeZone = [NSTimeZone defaultTimeZone];
+        n.repeatInterval = [task localNotificationRepeatInterval];
+        n.soundName = UILocalNotificationDefaultSoundName;
+        n.alertBody = task.name;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:n];
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

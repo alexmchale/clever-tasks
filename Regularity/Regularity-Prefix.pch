@@ -19,6 +19,7 @@
     #import "EditReminderController.h"
     #import "NSManagedObjectContext+NSManagedObjectContextCategory.h"
     #import "NSString+NSStringCategory.h"
+    #import "NSDate+NSDateCategory.h"
     #import "FrequencySelectController.h"
 #endif
 
