@@ -412,6 +412,7 @@
 		7496010414E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749600FF14E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf */; };
 		7496010514E6A09A007BD592 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7496010014E6A09A007BD592 /* YanoneKaffeesatz-Regular.ttf */; };
 		7496010614E6A09A007BD592 /* YanoneKaffeesatz-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7496010114E6A09A007BD592 /* YanoneKaffeesatz-Thin.ttf */; };
+		74A5A8C814E9F300008A8AFB /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A5A8C714E9F300008A8AFB /* StandardViewController.m */; };
 		74BF523814CE46AE003AE685 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BF523714CE46AE003AE685 /* UIKit.framework */; };
 		74BF523A14CE46AE003AE685 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BF523914CE46AE003AE685 /* Foundation.framework */; };
 		74BF523C14CE46AE003AE685 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BF523B14CE46AE003AE685 /* CoreGraphics.framework */; };
@@ -841,6 +842,8 @@
 		749600FF14E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Light.ttf"; path = "fonts/YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
 		7496010014E6A09A007BD592 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Regular.ttf"; path = "fonts/YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
 		7496010114E6A09A007BD592 /* YanoneKaffeesatz-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Thin.ttf"; path = "fonts/YanoneKaffeesatz-Thin.ttf"; sourceTree = "<group>"; };
+		74A5A8C614E9F300008A8AFB /* StandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardViewController.h; sourceTree = "<group>"; };
+		74A5A8C714E9F300008A8AFB /* StandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardViewController.m; sourceTree = "<group>"; };
 		74BF523314CE46AE003AE685 /* Regularity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Regularity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BF523714CE46AE003AE685 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74BF523914CE46AE003AE685 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1389,6 +1392,8 @@
 			children = (
 				74D4710514E9A98E0095FAB1 /* FrequencySelectController.h */,
 				74D4710614E9A98E0095FAB1 /* FrequencySelectController.m */,
+				74A5A8C614E9F300008A8AFB /* StandardViewController.h */,
+				74A5A8C714E9F300008A8AFB /* StandardViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1900,6 +1905,7 @@
 				74D470FD14E99D4A0095FAB1 /* TextFieldCell.m in Sources */,
 				74D4710714E9A98E0095FAB1 /* FrequencySelectController.m in Sources */,
 				74D4710A14E9C0D50095FAB1 /* NSDate+NSDateCategory.m in Sources */,
+				74A5A8C814E9F300008A8AFB /* StandardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

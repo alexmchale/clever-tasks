@@ -10,32 +10,20 @@
 
 
 @implementation FrequencySelectController
-@synthesize frequency;
 @synthesize editReminderController;
 @synthesize selectedIndex;
-@synthesize frequencyTableView;
 
 #pragma mark - View lifecycle
 
-- (void) viewDidLoad
-{
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]]];
-    [frequencyTableView setBackgroundColor:[UIColor clearColor]];
-}
-
 - (void)viewDidUnload
 {
-    [self setFrequency:nil];
-    [self setFrequency:nil];
-    [self setFrequencyTableView:nil];
+    self.editReminderController = nil;
+
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 

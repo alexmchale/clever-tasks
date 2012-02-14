@@ -1,11 +1,9 @@
 #import <UIKit/UIKit.h>
 
-@interface FrequencySelectController : UIViewController
+@interface FrequencySelectController : StandardViewController
     <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet UITableView *frequency;
 @property (strong, nonatomic) EditReminderController *editReminderController;
 @property FrequencyType selectedIndex;
-@property (weak, nonatomic) IBOutlet UITableView *frequencyTableView;
 
 @end

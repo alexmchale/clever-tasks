@@ -16,6 +16,7 @@
     #import "AppDelegate.h"
     #import "Task.h"
     #import "TextFieldCell.h"
+    #import "StandardViewController.h"
     #import "EditReminderController.h"
     #import "NSManagedObjectContext+NSManagedObjectContextCategory.h"
     #import "NSString+NSStringCategory.h"

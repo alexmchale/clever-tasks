@@ -1,27 +1,11 @@
-//
-//  EditReminderController.m
-//  Regularity
-//
-//  Created by Alex McHale on 1/24/12.
-//  Copyright (c) 2012 Gemini SBS. All rights reserved.
-//
-
 #import "EditReminderController.h"
 
 @implementation EditReminderController
+
 @synthesize whatToDo;
 @synthesize frequency;
 @synthesize due;
 @synthesize dateControl;
-@synthesize optionsTableView;
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -29,34 +13,15 @@
 {
     [super viewDidLoad];
     
-    whatToDo = [TextFieldCell cellForTableView:optionsTableView labeled:@"Title"];
+    whatToDo = [TextFieldCell cellForTableView:self.myTableView labeled:@"Title"];
+    
     whatToDo.text.placeholder = @"What do you need to do?";
-    [whatToDo.text addTarget:self action:@selector(donePressed:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
-    [optionsTableView reloadData];
-    
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]]];
-    [optionsTableView setBackgroundColor:[UIColor clearColor]];
-    
-    
-    /*
-    UIFont *font16 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:16.0];
-    UIFont *font20 = [UIFont fontWithName:@"Yanone Kaffeesatz" size:20.0];
-    
-    [whatToDo setFont:font20];
-    
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font16 forKey:UITextAttributeFont];
-    [frequencyControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [whatToDo.text addTarget:self
+                      action:@selector(donePressed:)
+            forControlEvents:UIControlEventEditingDidEndOnExit];
 
-    
-    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    UIImage *backgroundImage = [UIImage imageNamed:@"hixs_pattern_evolution.png"];
-    //NSLog(@"IMG %@", backgroundImage);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-    [self.view addSubview:backgroundView];
-    [self.view sendSubviewToBack:backgroundView];
-     
-     */
+    [self.myTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -64,20 +29,19 @@
     [super viewWillAppear:animated];
     
     NSArray *rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]];
-    [optionsTableView reloadRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationFade];
+    [self.myTableView reloadRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)viewDidUnload
 {
-    [self setWhatToDo:nil];
-    [self setDateControl:nil];
-    [self setOptionsTableView:nil];
+    self.whatToDo = nil;
+    self.dateControl = nil;
+
     [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -109,7 +73,7 @@
 - (IBAction)dateChanged:(id)sender
 {
     NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:2 inSection:0]];
-    [optionsTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+    [self.myTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

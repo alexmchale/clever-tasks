@@ -1,4 +1,4 @@
-@interface EditReminderController : UIViewController
+@interface EditReminderController : StandardViewController
     <UITableViewDelegate, UITableViewDataSource>
 {
 }
@@ -7,7 +7,6 @@
 @property (nonatomic) FrequencyType frequency;
 @property (strong, nonatomic) NSDate *due;
 
-@property (weak, nonatomic) IBOutlet UITableView *optionsTableView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateControl;
 
 - (IBAction)cancelButtonSelected:(id)sender;
