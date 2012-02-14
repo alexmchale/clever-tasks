@@ -23,11 +23,14 @@
 {
     [super viewDidLoad];
     
-    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    UIImage *backgroundImage = [UIImage imageNamed:@"husk.png"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-    [self.view addSubview:backgroundView];
-    [self.view sendSubviewToBack:backgroundView];
+//    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
+//    UIImage *backgroundImage = [UIImage imageNamed:@"husk.png"];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+//    [self.view addSubview:backgroundView];
+//    [self.view sendSubviewToBack:backgroundView];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]]];
+    [reminderTableView setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)viewDidUnload
@@ -117,6 +120,8 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     else
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    [cell setBackgroundColor:[UIColor whiteColor]];
 	
 	return cell;
 }
@@ -165,5 +170,34 @@
         [CTX save:nil];
     }
 }
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return @"Your Tasks";
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+//    if (sectionTitle == nil) {
+//        return nil;
+//    }
+//    
+//    // Create label with section title
+//    UILabel *label = [[UILabel alloc] init];
+//    label.frame = CGRectMake(20, 6, 300, 30);
+//    label.backgroundColor = [UIColor clearColor];
+//    label.textColor = [UIColor whiteColor];
+//    label.shadowColor = [UIColor grayColor];
+//    label.shadowOffset = CGSizeMake(0.0, 1.0);
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.text = sectionTitle;
+//    
+//    // Create header view and add label as a subview
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+//    [view addSubview:label];
+//    
+//    return view;
+//}
 
 @end

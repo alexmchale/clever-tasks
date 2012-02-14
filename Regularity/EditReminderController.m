@@ -31,8 +31,12 @@
     
     whatToDo = [TextFieldCell cellForTableView:optionsTableView labeled:@"Title"];
     whatToDo.text.placeholder = @"What do you need to do?";
+    [whatToDo.text addTarget:self action:@selector(donePressed:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     [optionsTableView reloadData];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]]];
+    [optionsTableView setBackgroundColor:[UIColor clearColor]];
     
     
     /*
@@ -108,10 +112,10 @@
     [optionsTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Tell me about your task";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return @"Tell me about your task";
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -178,6 +182,35 @@
     FrequencySelectController *frequencySelector = [segue destinationViewController];
     frequencySelector.editReminderController = self;
     frequencySelector.selectedIndex = frequency;
+}
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+//    if (sectionTitle == nil) {
+//        return nil;
+//    }
+//    
+//    // Create label with section title
+//    UILabel *label = [[UILabel alloc] init];
+//    label.frame = CGRectMake(20, 6, 300, 30);
+//    label.backgroundColor = [UIColor clearColor];
+//    label.textColor = [UIColor whiteColor];
+//    label.shadowColor = [UIColor grayColor];
+//    label.shadowOffset = CGSizeMake(0.0, 1.0);
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.text = sectionTitle;
+//    
+//    // Create header view and add label as a subview
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+//    [view addSubview:label];
+//    
+//    return view;
+//}
+
+- (void) donePressed:(id)sender
+{
+    [whatToDo.text resignFirstResponder];
 }
 
 @end

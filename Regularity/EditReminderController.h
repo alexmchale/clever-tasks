@@ -14,5 +14,6 @@
 - (IBAction)saveButtonSelected:(id)sender;
 - (IBAction)whatEditingDone:(id)sender;
 - (IBAction)dateChanged:(id)sender;
+- (void)donePressed:(id)sender;
 
 @end
