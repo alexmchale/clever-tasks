@@ -49,6 +49,7 @@
     text.autocapitalizationType = UITextAutocapitalizationTypeNone;
     text.clearButtonMode = UITextFieldViewModeWhileEditing;
     text.returnKeyType = UIReturnKeyDone;
+    text.adjustsFontSizeToFitWidth = YES;
     
     if (label) [self.contentView addSubview:label];
     [self.contentView addSubview:text];

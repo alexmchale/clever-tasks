@@ -41,6 +41,8 @@
     cell.textLabel.text = [Task describeFrequency:indexPath.row];
     cell.accessoryType = (indexPath.row == selectedIndex) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
+    [self fixCellAppearance:cell];
+    
     return cell;
 }
 

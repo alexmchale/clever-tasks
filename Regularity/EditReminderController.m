@@ -95,14 +95,15 @@
     switch (indexPath.row)
     {
         case 0:
-            return whatToDo;
+            cell = whatToDo;
+            break;
             
         case 1:
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];            
             cell.textLabel.text = @"Frequency";
             cell.detailTextLabel.text = [Task describeFrequency:frequency];     
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            return cell;
+            break;
             
         case 2:
         {
@@ -115,11 +116,13 @@
             cell.textLabel.text = @"Due";
             cell.detailTextLabel.text = [df stringFromDate:[dateControl date]];
             cell.accessoryType = UITableViewCellAccessoryNone;
-            return cell;
+            break;
         }
     }
     
-    return nil;
+    [self fixCellAppearance:cell];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

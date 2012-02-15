@@ -4,6 +4,16 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+//    UIImage *navBackgroundImage = [UIImage imageNamed:@"ice_age.png"];
+//    UIColor *navBackgroundColor = [UIColor colorWithPatternImage:navBackgroundImage];
+//    
+//    [self.myNavigationBar setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -53,8 +63,8 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifier];
 	}
 	
-	// get the view controller's info dictionary based on the indexPath's row
 	cell.textLabel.text = [item name];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
     
     NSString *time = [df stringFromDate:[item due]];
     NSString *mode = [item describeFrequency];
@@ -65,7 +75,7 @@
     else
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
-    [cell setBackgroundColor:[UIColor whiteColor]];
+    [self fixCellAppearance:cell];
 	
 	return cell;
 }
