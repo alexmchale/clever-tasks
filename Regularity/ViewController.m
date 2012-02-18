@@ -49,35 +49,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *kCellIdentifier = @"TaskList";
-    Task *item = [tasks objectAtIndex:indexPath.row];
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    TaskListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskList"];
     
-    [df setTimeStyle:NSDateFormatterShortStyle];
-    [df setDateStyle:NSDateFormatterShortStyle];
+    if (cell == nil) {
+        cell = [[TaskListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TaskList"];
+    }
     
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    cell.task = [tasks objectAtIndex:indexPath.row];
     
-	if (cell == nil)
-	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifier];
-	}
-	
-	cell.textLabel.text = [item name];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
-    NSString *time = [df stringFromDate:[item due]];
-    NSString *mode = [item describeFrequency];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", time, mode];
-    
-    if (item.completed == nil)
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    else
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    [self fixCellAppearance:cell];
-	
-	return cell;
+    return cell;    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
