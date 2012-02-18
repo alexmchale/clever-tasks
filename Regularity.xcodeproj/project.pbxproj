@@ -411,6 +411,8 @@
 		74949EC514EB46EC0049B8FD /* dark_matter.png in Resources */ = {isa = PBXBuildFile; fileRef = 74949EC414EB46EC0049B8FD /* dark_matter.png */; };
 		74949EC714EB478F0049B8FD /* px_by_Gre3g.png in Resources */ = {isa = PBXBuildFile; fileRef = 74949EC614EB478F0049B8FD /* px_by_Gre3g.png */; };
 		74949EC914EB49B90049B8FD /* px_by_Gre3g_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 74949EC814EB49B90049B8FD /* px_by_Gre3g_light.png */; };
+		74949ECC14EB4C660049B8FD /* MyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74949ECB14EB4C660049B8FD /* MyTableCell.m */; };
+		74949ECF14EB4CCE0049B8FD /* TaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74949ECE14EB4CCE0049B8FD /* TaskListCell.m */; };
 		7496010214E6A09A007BD592 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749600FD14E6A09A007BD592 /* PlayfairDisplay-Regular.ttf */; };
 		7496010314E6A09A007BD592 /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749600FE14E6A09A007BD592 /* YanoneKaffeesatz-Bold.ttf */; };
 		7496010414E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749600FF14E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf */; };
@@ -444,6 +446,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7482CF5114EF399300F0FF3E /* Regularity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Regularity.entitlements; sourceTree = "<group>"; };
 		748F875E14E4615C00753D66 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "icons/01-refresh.png"; sourceTree = "<group>"; };
 		748F875F14E4615C00753D66 /* 02-redo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "02-redo.png"; path = "icons/02-redo.png"; sourceTree = "<group>"; };
 		748F876014E4615C00753D66 /* 03-loopback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "03-loopback.png"; path = "icons/03-loopback.png"; sourceTree = "<group>"; };
@@ -848,6 +851,10 @@
 		74949EC414EB46EC0049B8FD /* dark_matter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dark_matter.png; path = textures/dark_matter.png; sourceTree = "<group>"; };
 		74949EC614EB478F0049B8FD /* px_by_Gre3g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = px_by_Gre3g.png; path = textures/px_by_Gre3g.png; sourceTree = "<group>"; };
 		74949EC814EB49B90049B8FD /* px_by_Gre3g_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = px_by_Gre3g_light.png; path = textures/px_by_Gre3g_light.png; sourceTree = "<group>"; };
+		74949ECA14EB4C660049B8FD /* MyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableCell.h; sourceTree = "<group>"; };
+		74949ECB14EB4C660049B8FD /* MyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableCell.m; sourceTree = "<group>"; };
+		74949ECD14EB4CCE0049B8FD /* TaskListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListCell.h; sourceTree = "<group>"; };
+		74949ECE14EB4CCE0049B8FD /* TaskListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListCell.m; sourceTree = "<group>"; };
 		749600FD14E6A09A007BD592 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-Regular.ttf"; path = "fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		749600FE14E6A09A007BD592 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Bold.ttf"; path = "fonts/YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
 		749600FF14E6A09A007BD592 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Light.ttf"; path = "fonts/YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
@@ -1364,6 +1371,7 @@
 		74BF523D14CE46AE003AE685 /* Regularity */ = {
 			isa = PBXGroup;
 			children = (
+				7482CF5114EF399300F0FF3E /* Regularity.entitlements */,
 				74D4710314E9A9630095FAB1 /* Controllers */,
 				74D470F914E99D100095FAB1 /* Widgets */,
 				74E64EF414E89E4E00F0FD1D /* Categories */,
@@ -1399,6 +1407,10 @@
 			children = (
 				74D470FB14E99D4A0095FAB1 /* TextFieldCell.h */,
 				74D470FC14E99D4A0095FAB1 /* TextFieldCell.m */,
+				74949ECA14EB4C660049B8FD /* MyTableCell.h */,
+				74949ECB14EB4C660049B8FD /* MyTableCell.m */,
+				74949ECD14EB4CCE0049B8FD /* TaskListCell.h */,
+				74949ECE14EB4CCE0049B8FD /* TaskListCell.m */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -1469,7 +1481,7 @@
 		74BF522A14CE46AE003AE685 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Gemini SBS";
 			};
 			buildConfigurationList = 74BF522D14CE46AE003AE685 /* Build configuration list for PBXProject "Regularity" */;
@@ -1934,6 +1946,8 @@
 				74D4710714E9A98E0095FAB1 /* FrequencySelectController.m in Sources */,
 				74D4710A14E9C0D50095FAB1 /* NSDate+NSDateCategory.m in Sources */,
 				74A5A8C814E9F300008A8AFB /* StandardViewController.m in Sources */,
+				74949ECC14EB4C660049B8FD /* MyTableCell.m in Sources */,
+				74949ECF14EB4CCE0049B8FD /* TaskListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1966,6 +1980,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1990,7 +2005,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1999,6 +2015,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2007,6 +2024,7 @@
 		74BF525214CE46AE003AE685 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Regularity/Regularity.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Regularity/Regularity-Prefix.pch";
 				INFOPLIST_FILE = "Regularity/Regularity-Info.plist";
@@ -2018,6 +2036,7 @@
 		74BF525314CE46AE003AE685 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Regularity/Regularity.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Regularity/Regularity-Prefix.pch";
 				INFOPLIST_FILE = "Regularity/Regularity-Info.plist";
