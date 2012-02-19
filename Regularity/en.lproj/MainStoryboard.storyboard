@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -33,7 +34,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tbp-vL-K0F"/>
-                                    <barButtonItem title="Tasks" style="plain" id="vos-1T-XcM"/>
+                                    <barButtonItem title="Clever Do" style="plain" id="vos-1T-XcM"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NyB-Ht-870"/>
                                     <barButtonItem systemItem="add" id="len-k5-w7f">
                                         <connections>
@@ -53,6 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-794" y="-1173"/>
         </scene>
+        <!--Edit Reminder Controller-->
         <scene sceneID="gjT-JA-7hN">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77c-iq-XVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,6 +143,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-385" y="-1164"/>
         </scene>
+        <!--Frequency Select Controller-->
         <scene sceneID="FtE-bJ-tvj">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98t-rG-2rl" userLabel="First Responder" sceneMemberID="firstResponder"/>

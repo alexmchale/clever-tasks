@@ -65,12 +65,11 @@
     Task *task = [tasks objectAtIndex:indexPath.row];
     [task toggleCompleted];
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    TaskListCell *cell = (TaskListCell *)[tableView cellForRowAtIndexPath:indexPath];
+
+    cell.task = task;
     
-    if (task.completed == nil) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if (task.completed != nil) {
         Task *nextTask = [task createNext];
         
         if (nextTask != nil) {

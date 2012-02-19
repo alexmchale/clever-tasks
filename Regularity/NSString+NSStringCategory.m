@@ -21,4 +21,33 @@
     return uuid;
 }
 
++ (NSString *) stringFromTimeDelta:(NSTimeInterval)delta
+{
+    double d = fabs(delta);
+    NSUInteger count;
+    NSString *label;
+    
+    if (d < ONE_HOUR) {
+        count = d / ONE_MINUTE;
+        label = @"minute";
+    } else if (d < ONE_DAY) {
+        count = d / ONE_HOUR;
+        label = @"hour";
+    } else if (d < THIRTY_DAYS) {
+        count = d / ONE_DAY;
+        label = @"day";
+    } else if (d < ONE_YEAR) {
+        count = d / THIRTY_DAYS;
+        label = @"month";
+    } else {
+        count = d / ONE_YEAR;
+        label = @"year";
+    }
+    
+    if (count == 1)
+        return [NSString stringWithFormat:@"%d %@", count, label];
+    else
+        return [NSString stringWithFormat:@"%d %@s", count, label];
+}
+
 @end

@@ -126,6 +126,24 @@
     return ![self completed] && [self.due isAfter:[NSDate date]];
 }
 
+- (NSString *) describeTime
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];    
+    [df setTimeStyle:NSDateFormatterShortStyle];
+    [df setDateStyle:NSDateFormatterShortStyle];
+    
+    NSDate *date = self.completed ? self.completed : self.due;
+    NSString *dateString = [df stringFromDate:date];
+    NSTimeInterval delta = [date timeIntervalSinceNow];
+    NSString *deltaString = [NSString stringFromTimeDelta:delta];
+    NSString *mode = [self describeFrequency];
+    
+    if (delta < 0)
+        return [NSString stringWithFormat:@"%@ - %@ ago (%@)", dateString, deltaString, mode];
+    else
+        return [NSString stringWithFormat:@"%@ - %@ away (%@)", dateString, deltaString, mode];
+}
+
 + (NSArray *) all
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
