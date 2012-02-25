@@ -34,6 +34,7 @@ typedef enum
 - (BOOL) doesNextTaskExist;
 - (BOOL) scheduleable;
 - (NSString *) describeTime;
+- (BOOL) isDueToday;
 
 + (NSArray *) all;
 + (NSString *) describeFrequency:(FrequencyType)type;

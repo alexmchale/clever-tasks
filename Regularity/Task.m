@@ -144,6 +144,16 @@
         return [NSString stringWithFormat:@"%@ - %@ away (%@)", dateString, deltaString, mode];
 }
 
+- (BOOL) isDueToday
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDate *today = [NSDate date];
+    NSDateComponents *taskComps = [cal components:unitFlags fromDate:self.due];
+    NSDateComponents *todayComps = [cal components:unitFlags fromDate:today];
+    return [taskComps isEqual:todayComps];
+}
+
 + (NSArray *) all
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Task"];

@@ -11,10 +11,7 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];    
     [df setTimeStyle:NSDateFormatterShortStyle];
     [df setDateStyle:NSDateFormatterShortStyle];
-    
-    NSTimeInterval delta = [task.due timeIntervalSinceNow];
-    NSInteger daysToGo = delta / ONE_DAY;
-        
+            
 	self.textLabel.text = task.name;
     self.textLabel.adjustsFontSizeToFitWidth = YES;    
     self.detailTextLabel.text = [task describeTime];
@@ -24,19 +21,18 @@
         // Task is completed, always color in light grey.
         self.textLabel.textColor = [UIColor lightGrayColor];
         self.detailTextLabel.textColor = [UIColor lightGrayColor];
-    } else if (daysToGo >= 0) {
-        // Task is not yet due, color in a grey of strength with ratio to its delta.
-        CGFloat greys[] = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 };        
-        CGFloat g = greys[URANGE(0, daysToGo, 7)];
-        self.textLabel.textColor = [UIColor colorWithRed:g green:g blue:g alpha:1.0];
-        self.detailTextLabel.textColor = [UIColor colorWithRed:g green:g blue:g alpha:1.0];
-    } else {
-        // Task is overdue
-        CGFloat reds[] = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 };
-        CGFloat r = reds[URANGE(0, -daysToGo, 7)];
-        NSLog(@"overdue task %@, red = %f", task.name, r);
+    } else if ([task isDueToday]) {
+        // Task is due today.
         self.textLabel.textColor = [UIColor blackColor];
-        self.detailTextLabel.textColor = [UIColor colorWithRed:r green:0.3 blue:0.3 alpha:1.0];
+        self.detailTextLabel.textColor = [UIColor darkGrayColor];
+    } else if ([task.due isBefore:[NSDate date]]) {
+        // Task is overdue.
+        self.textLabel.textColor = [UIColor blackColor];
+        self.detailTextLabel.textColor = [UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1.0];
+    } else {
+        // Task is not yet due.
+        self.textLabel.textColor = [UIColor darkGrayColor];
+        self.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
     
     if (task.completed == nil)
