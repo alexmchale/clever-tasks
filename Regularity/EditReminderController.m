@@ -78,11 +78,6 @@
     [self.myTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return @"Tell me about your task";
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;

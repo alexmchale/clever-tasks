@@ -1481,7 +1481,7 @@
 		74BF522A14CE46AE003AE685 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Gemini SBS";
 			};
 			buildConfigurationList = 74BF522D14CE46AE003AE685 /* Build configuration list for PBXProject "Regularity" */;
