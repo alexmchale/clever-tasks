@@ -28,10 +28,11 @@
     [CTX save:nil];
 }
 
-- (Task *) createNext
+- (Task *) createNext:(NSDate *)earliestDate
 {
     if ([self frequencyType] == kFrequencyOnce) return nil;
     if ([self doesNextTaskExist]) return nil;
+    if (earliestDate == nil) earliestDate = self.due;
     
     NSEntityDescription *desc = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:CTX];
     Task *task = [[Task alloc] initWithEntity:desc insertIntoManagedObjectContext:CTX];
@@ -49,7 +50,6 @@
             
         case kFrequencyWeekly:
             components.week = 1;
-            task.due = [NSDate dateWithTimeInterval:ONE_WEEK sinceDate:self.due];
             break;
             
         case kFrequencyMonthly:
@@ -64,8 +64,12 @@
     task.name = self.name;
     task.frequency = self.frequency;
     task.completed = nil;
-    task.due = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self.due options:0];
     task.uuid = self.uuid;
+    task.due = self.due;
+
+    do {
+        task.due = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:task.due options:0];
+    } while ([task.due isBefore:earliestDate]);
     
     [task save];
     

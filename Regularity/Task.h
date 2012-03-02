@@ -27,7 +27,7 @@ typedef enum
 
 - (void) toggleCompleted;
 - (void) save;
-- (Task *) createNext;
+- (Task *) createNext:(NSDate *)earliestDate;
 - (FrequencyType) frequencyType;
 - (NSCalendarUnit) localNotificationRepeatInterval;
 - (NSString *) describeFrequency;

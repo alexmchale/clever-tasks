@@ -70,7 +70,7 @@
     cell.task = task;
     
     if (task.completed != nil) {
-        Task *nextTask = [task createNext];
+        Task *nextTask = [task createNext:[NSDate date]];
         
         if (nextTask != nil) {
             tasks = [Task all];
